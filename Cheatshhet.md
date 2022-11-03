@@ -1,3 +1,0 @@
-# CHEATSHEET - Curso Typescript
-
-Teste

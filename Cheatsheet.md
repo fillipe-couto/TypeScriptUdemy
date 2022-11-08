@@ -1,6 +1,6 @@
 # CHEATSHEET - Typescript
 
-## Seção 1
+## Seção 01
 
 - Typescript = Javascript + [Type System];
 - Objetivo: buscar erros durante o desenvolvimento;
@@ -9,6 +9,20 @@
 - Módulo "typescript" instala o compilador Typescript, executável com o comando **tsc <arquivo.ts>**;
 - Módulo "ts-node" instala o compilador/executor de arquivos Typescript com o comando **ts-node <arquivo.ts>**;
 
-## Seção 2
+## Seção 02
 
 - Tipo (em Typescript): atalho para descrever propriedades e funções que uma variável tem;
+
+## Seção 03
+
+- Type annotation: código inserido explicitamente para informar qual é o tipo da variável;
+- Type inference: Typescript tentará interpretar implicitamente qual é o tipo da variável;
+- Anotação de tipo explícita: dois-pontos e tipo após nome da variável;
+- Anotação implícita: sempre que uma variável for inicializada ao ser declarada;
+- Tipo **any**: quando o Typescript não pode/consegue deduzir/definir o tipo de uma variável;
+- Sempre que possível, utilizar **anotações implícitas**;
+- Três casos em que a **anotação explícita** deverá ser utilizada:
+- - Retorno de funções do tipo **any**;
+- - Ao inicializar um valor à variável em linha diferente da sua declaração;
+- - Quando o tipo não puder ser inferido (exemplo: uma variável poder assumir dois tipos);
+- Dois ou mais tipos em uma variável: utilizar o _pipe_ ("|");

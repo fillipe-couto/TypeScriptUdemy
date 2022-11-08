@@ -14,7 +14,7 @@ class Carro {};
 let carro: Carro = new Carro();
 
 // Objeto literal
-let ponto: {x: number; y: number} = {
+let ponto: {x: number, y: number} = {
     x: 10,
     y: 10
 }

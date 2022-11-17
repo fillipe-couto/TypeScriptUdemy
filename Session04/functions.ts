@@ -1,16 +1,20 @@
+// Declarando funções como variavel sem anotation explicita
 const adicionar = (a: number, b: number): number => {
     return a + b;
 }
 
+// Declarando funções explicitamente
 function subtrair(a: number, b: number): number {
     return a - b;
 }
 
-const multiplicar = function(a: number, b: number): number {
+// Declarando funções como variavel com anotation explicita
+const multiplicar: (a: number, b: number) => number = function(a: number, b: number): number {
     return a * b;
 }
 
 const testeFn = (msg: string): void => {
+
     return;
 };
 

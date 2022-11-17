@@ -32,3 +32,9 @@
 - Boa prática: sempre colocar explicitamente o tipo de retorno de uma função;
 - Funções podem ter o tipo de retorno **never**, que indica que nunca retornam nada;
 - Objetos em argumentos de funções podem ser descontruídos/decompostos;
+
+## Seção 05
+
+- Arrays em typescript devem preferencialmente conter um só tipo de dado;
+- Só precisam ter anotações explícitas se forem inicializados como vazio;
+- Podem ter mais de um tipo de dado assim como variáveis (usando _pipe_ ("|"));

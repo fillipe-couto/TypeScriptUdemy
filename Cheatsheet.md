@@ -38,3 +38,9 @@
 - Arrays em typescript devem preferencialmente conter um só tipo de dado;
 - Só precisam ter anotações explícitas se forem inicializados como vazio;
 - Podem ter mais de um tipo de dado assim como variáveis (usando _pipe_ ("|"));
+
+## Seção 06
+
+- Tuplas: tipo de array com tamanho fixo e propriedades ordenadas;
+- Estrutura de dados similar a objetos, porém sem rótulos nos dados;
+- Devem ser explicitamente anotadas durante inicialização, senão serão tratadas como arrays comuns;

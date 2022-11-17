@@ -44,3 +44,10 @@
 - Tuplas: tipo de array com tamanho fixo e propriedades ordenadas;
 - Estrutura de dados similar a objetos, porém sem rótulos nos dados;
 - Devem ser explicitamente anotadas durante inicialização, senão serão tratadas como arrays comuns;
+
+## Seção 07
+
+- Interface: cria um novo tipo que descreve os nomes das propriedades e tipos de valor de um objeto;
+- Tipos compostos (funções, objetos) também podem fazer parte da interface;
+- Para satisfazer uma condição, um argumento de função precisa satisfazer apenas o _mínimo_ que a interface exige;
+- Sempre que possível, argumentos de função devem ser definidos com interfaces para aumentar a reusabilidade;

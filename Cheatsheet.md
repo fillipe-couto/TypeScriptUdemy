@@ -49,5 +49,11 @@
 
 - Interface: cria um novo tipo que descreve os nomes das propriedades e tipos de valor de um objeto;
 - Tipos compostos (funções, objetos) também podem fazer parte da interface;
-- Para satisfazer uma condição, um argumento de função precisa satisfazer apenas o _mínimo_ que a interface exige;
+- Para satisfazer uma condição, um argumento de função precisa satisfazer apenas o _mínimo_ que a interface descreve;
 - Sempre que possível, argumentos de função devem ser definidos com interfaces para aumentar a reusabilidade;
+
+## Seção 08
+
+- Classe: regra que define as propriedades e funções de um objeto;
+- Segue premissas básicas de orientação a objetos (herança, contructor, modificadores de acesso, etc);
+- Interface + Classe = reusabilidade;

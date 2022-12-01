@@ -57,3 +57,12 @@
 - Classe: regra que define as propriedades e funções de um objeto;
 - Segue premissas básicas de orientação a objetos (herança, contructor, modificadores de acesso, etc);
 - Interface + Classe = reusabilidade;
+
+## Seção 09
+
+- Typescript segue alguns princípios básicos de padrões de projeto:
+  - Uma definição de classe por arquivo;
+  - Arquivos que iniciam com letra **maúscula** representam classes a serem exportadas para uso em outros arquivos;
+  - Arquivos que iniciam com letra **minúscula** normalmente representam arquivos com lógica de funcionamento;
+- Bibliotecas do _Node.js_ podem ser importadas com **import**;
+- Usualmente, componentes Javascript importados devem ter suas definições para não gerarem warnings no código Typescript. Por isso, definições de tipos ausentes podem ser importados incluindo componentes _@types/<nome_da_biblioteca>_ (consultar o repositório no _Node.js_ em _www.npmjs.com_ para maiores detalhes);

@@ -18,7 +18,7 @@ const caminhao: Veiculo = new Veiculo("prata");
 console.log(`Veiculo é de cor ${caminhao.cor}`);
 
 // Definição de outra classe, que herda Veiculo
-class Carro2 extends Veiculo {
+class Carro extends Veiculo {
     // Se a classe filha tiver seu próprio construtor, o construtor da classe pai deve ser chamado com super()
     constructor(cor: string, public qtdRodas: number) {
         super(cor);
@@ -33,7 +33,7 @@ class Carro2 extends Veiculo {
     }
 }
 
-const carro = new Carro2("branca", 4);
+const carro = new Carro("branca", 4);
 // carro.dirigir(); --> ERRO, dirigir() é privado de Carro
 // carro.buzinar(); --> ERRO, buzinar() é protected de Veiculo
 console.log(`O numero de rodas de carro é ${carro.qtdRodas}`);

@@ -65,4 +65,9 @@
   - Arquivos que iniciam com letra **maúscula** representam classes a serem exportadas para uso em outros arquivos;
   - Arquivos que iniciam com letra **minúscula** normalmente representam arquivos com lógica de funcionamento;
 - Bibliotecas do _Node.js_ podem ser importadas com **import**;
-- Usualmente, componentes Javascript importados devem ter suas definições para não gerarem warnings no código Typescript. Por isso, definições de tipos ausentes podem ser importados incluindo componentes _@types/<nome_da_biblioteca>_ (consultar o repositório no _Node.js_ em _www.npmjs.com_ para maiores detalhes);
+- Usualmente, componentes Javascript importados devem ter suas definições para não gerarem warnings no código Typescript. Por isso, pode ser necessário instalar **Arquivos de definição de tipo**;
+- Arquivos de definição de tipos podem ser importados incluindo componentes _@types/<nome_da_biblioteca>_ (consultar o repositório no _Node.js_ em _www.npmjs.com_ para maiores detalhes);
+- Classes definidas em um arquivo podem ser usadas em outros arquivos com o comando **import**;
+- O arquivo Typescrit que contém classes e outros recursos que podem ser utilizados devem ser disponibilizados com o comando **export**;
+- O modificador **default** no comando _export_ faz com que o recurso disponibilizado seja importado por padrão quando for invocado em um comando _import_, e nesse caso omite-se as chaves. Recursos exportados sem _default_ devem ser incluídos no _import_ entre chaves;
+- Os recursos importados podem ser referenciados por um _alias_ com o comando **as** (exemplo: "import { Classe as C } from '<nome_do_arquivo>'"). Recursos exportados com _default_ podem ser invocados direto com _alias_ (sem o _as_ - exemplo: "import C from '<nome_do_arquivo>'");

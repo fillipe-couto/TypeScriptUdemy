@@ -1,5 +1,21 @@
 # CHEATSHEET - Typescript
 
+## Conceitos básicos de Javascript a serem utilizados
+
+- Declarações com **var**:
+  - Escopo _global_ ou _funcional_;
+  - Podem ser re-declaradas dentro de seu próprio escopo;
+  - Podem ser atualizadas dentro de seu próprio escopo;
+- Declarações com **let**:
+  - Escopo _por bloco_ (trecho de código entre chaves);
+  - **NÃO** podem ser re-declaradas dentro de seu próprio escopo;
+  - Podem ser atualizadas dentro de seu próprio escopo;
+- Declarações com **const**:
+  - Escopo _por bloco_ (trecho de código entre chaves);
+  - **NÃO** podem ser re-declaradas dentro de seu próprio escopo;
+  - **NÃO** podem ser atualizadas dentro de seu próprio escopo;
+  - Devem ser inicializadas no momento da declaração;
+
 ## Seção 01
 
 - Typescript = Javascript + [Type System];
@@ -64,8 +80,10 @@
   - Uma definição de classe por arquivo;
   - Arquivos que iniciam com letra **maúscula** representam classes a serem exportadas para uso em outros arquivos;
   - Arquivos que iniciam com letra **minúscula** normalmente representam arquivos com lógica de funcionamento;
+  - Um arquivo de definição de classe normalmente também definem uma interface que contém o mínimo que outras classes devem ter para trabalharem com ela;
+  - Outras classes podem implementar outra interface com o auxílio do comando _implements_, que assegura a conformidade daquela classe com a interface da outra classe;
 - Bibliotecas do _Node.js_ podem ser importadas com **import**;
-- Usualmente, componentes Javascript importados devem ter suas definições para não gerarem warnings no código Typescript. Por isso, pode ser necessário instalar **Arquivos de definição de tipo**;
+- Usualmente, componentes Javascript importados devem ter suas definições de tipo para não gerarem warnings no código Typescript. Por isso, pode ser necessário instalar **Arquivos de definição de tipo**;
 - Arquivos de definição de tipos podem ser importados incluindo componentes _@types/<nome_da_biblioteca>_ (consultar o repositório no _Node.js_ em _www.npmjs.com_ para maiores detalhes);
 - Classes definidas em um arquivo podem ser usadas em outros arquivos com o comando **import**;
 - O arquivo Typescrit que contém classes e outros recursos que podem ser utilizados devem ser disponibilizados com o comando **export**;

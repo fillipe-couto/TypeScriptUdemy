@@ -89,3 +89,18 @@
 - O arquivo Typescrit que contém classes e outros recursos que podem ser utilizados devem ser disponibilizados com o comando **export**;
 - O modificador **default** no comando _export_ faz com que o recurso disponibilizado seja importado por padrão quando for invocado em um comando _import_, e nesse caso omite-se as chaves. Recursos exportados sem _default_ devem ser incluídos no _import_ entre chaves;
 - Os recursos importados podem ser referenciados por um _alias_ com o comando **as** (exemplo: "import { Classe as C } from '<nome_do_arquivo>'"). Recursos exportados com _default_ podem ser invocados direto com _alias_ (sem o _as_ - exemplo: "import C from '<nome_do_arquivo>'");
+
+## Seção 10
+
+- Comandos interessantes para o compilador Typescript:
+  - **tsc --init**: cria um arquivo de configuração _tsconfig.json_ que configura o processo de compilação;
+  - **tsc -w**: compilação contínua (disparada após detecção de alguma mudança em um arquivo);
+- Configurações e dependências _nodejs_ para compilação e execução paralela:
+  - **npm init -y**: configura um projeto nodejs com a criação do _package.json_;
+  - **nodemon**: dependência para executar continuamente um script Javascript;
+  - **concurrently**: dependência para executar comandos paralelamente;
+- Scripts do _package.json_:
+  - **start:build**: "tsc -w" (compilação permanente);
+  - **start:run**: "nodemon build/index.js" (execução permanente),
+  - **start**: "concurrently npm:start:*" (execução simultânea dos dois outros scripts);
+  

@@ -22,8 +22,8 @@
 - Objetivo: buscar erros durante o desenvolvimento;
 - Não afeta desempenho;
 - Configurando NPM para trabalhar com Typescript: **npm install -g typescript ts-node**;
-- Módulo "typescript" instala o compilador Typescript, executável com o comando **tsc <arquivo.ts>**;
-- Módulo "ts-node" instala o compilador/executor de arquivos Typescript com o comando **ts-node <arquivo.ts>**;
+- Módulo "typescript" instala o compilador Typescript, executável com o comando **tsc \<arquivo.ts\>**;
+- Módulo "ts-node" instala o compilador/executor de arquivos Typescript com o comando **ts-node \<arquivo.ts\>**;
 
 ## Seção 02
 
@@ -74,7 +74,7 @@
 - Segue premissas básicas de orientação a objetos (herança, contructor, modificadores de acesso, etc);
 - Interface + Classe = reusabilidade;
 
-## Seção 09
+## Seção 09 (projeto _maps_)
 
 - Typescript segue alguns princípios básicos de padrões de projeto:
   - Uma definição de classe por arquivo;
@@ -84,13 +84,13 @@
   - Outras classes podem implementar outra interface com o auxílio do comando _implements_, que assegura a conformidade daquela classe com a interface da outra classe;
 - Bibliotecas do _Node.js_ podem ser importadas com **import**;
 - Usualmente, componentes Javascript importados devem ter suas definições de tipo para não gerarem warnings no código Typescript. Por isso, pode ser necessário instalar **Arquivos de definição de tipo**;
-- Arquivos de definição de tipos podem ser importados incluindo componentes _@types/<nome_da_biblioteca>_ (consultar o repositório no _Node.js_ em _www.npmjs.com_ para maiores detalhes);
+- Arquivos de definição de tipos podem ser importados incluindo componentes _@types/\<nome_da_biblioteca\>_ (consultar o repositório no _Node.js_ em _www.npmjs.com_ para maiores detalhes);
 - Classes definidas em um arquivo podem ser usadas em outros arquivos com o comando **import**;
 - O arquivo Typescrit que contém classes e outros recursos que podem ser utilizados devem ser disponibilizados com o comando **export**;
 - O modificador **default** no comando _export_ faz com que o recurso disponibilizado seja importado por padrão quando for invocado em um comando _import_, e nesse caso omite-se as chaves. Recursos exportados sem _default_ devem ser incluídos no _import_ entre chaves;
-- Os recursos importados podem ser referenciados por um _alias_ com o comando **as** (exemplo: "import { Classe as C } from '<nome_do_arquivo>'"). Recursos exportados com _default_ podem ser invocados direto com _alias_ (sem o _as_ - exemplo: "import C from '<nome_do_arquivo>'");
+- Os recursos importados podem ser referenciados por um _alias_ com o comando **as** (exemplo: "import { Classe as C } from '\<nome_do_arquivo\>'"). Recursos exportados com _default_ podem ser invocados direto com _alias_ (sem o _as_ - exemplo: "import C from '\<nome_do_arquivo\>'");
 
-## Seção 10
+## Seção 10 (projeto _sort_)
 
 - Comandos interessantes para o compilador Typescript:
   - **tsc --init**: cria um arquivo de configuração _tsconfig.json_ que configura o processo de compilação;
@@ -103,4 +103,15 @@
   - **start:build**: "tsc -w" (compilação permanente);
   - **start:run**: "nodemon build/index.js" (execução permanente),
   - **start**: "concurrently npm:start:*" (execução simultânea dos dois outros scripts);
-  
+- **Type Guards**: especificação de tipos para variáveis com dois ou mais tipos (definidas com "|"):
+  - **typeof \<variavel\> === '\<tipo\>'**: quando **tipo** for _number_, _string_, _boolean_ ou _symbol_;
+  - **\<variavel\> instanceof '\<tipo\>'**: para demais tipos e objetos;
+- **get**: define um método como uma propriedade;
+- Classes podem herdar outras com o comando _extends_;
+- Se a classe que herda outra classe tiver um construtor específico declarado, deverá chamar explicitamente o construtor da classe herdada com o método _super()_;
+- Classes Abstratas x Interfaces
+  - Ambas definem um "contrato" entre diferentes classes;
+  - Interfaces promovem acoplamento fraco. Classes abstratas promovem acoplamento forte;
+  - Interfaces são usadas quando diferentes objetos pouco relacionados podem ter algumas características em comum;
+  - Classes abstratas são usadas para definir um conjunto de propriedades em comum que objetos parecidos devem ter;
+  - Normalmente, a primeira abordagem para definir similaridades entre classes é a interface, refatorando o código depois para classes abstratas se necessário;

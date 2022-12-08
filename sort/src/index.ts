@@ -1,26 +1,26 @@
-class Ordenador {
-    constructor(private colecao: number[]) {}
+import { ColecaoDeLetras } from "./ColecaoDeLetras";
+import { ColecaoDeNumeros } from "./ColecaoDeNumeros";
+import { ListaLigada } from "./ListaLigada";
+import { Ordenador } from "./Ordenador";
 
-    ordenarColecao(): void {
-        const { length } = this.colecao;
+const numeros = new ColecaoDeNumeros([5, 7, -2, 10, 3, 4]);
+console.log(`\nColeção anterior: [${numeros.conteudo}]`);
+numeros.ordenarColecao();
+console.log(`Coleção ordenada: [${numeros.conteudo}]\n`);
 
-        for (let x = 0; x < length; x++) {
-            for (let y = 0; y < length - x - 1; y++) {
-                if (this.colecao[y] <= this.colecao[y + 1]) {
-                    continue;
-                }
-                const esquerda = this.colecao[y];
-                this.colecao[y] = this.colecao[y + 1];
-                this.colecao[y + 1] = esquerda;
-            }
-        }
-    }
+const nome = new ColecaoDeLetras("FillipeCouto");
+console.log(`\nColeção anterior: [${nome.conteudo}]`);
+nome.ordenarColecao();
+console.log(`Coleção ordenada: [${nome.conteudo}]\n`);
 
-    obterColecao(): number[] {
-        return this.colecao;
-    }
-}
-
-const ordenar = new Ordenador([5, 7, -2, 10, 3, 4]);
-ordenar.ordenarColecao();
-console.log(ordenar.obterColecao());
+const listaLigada = new ListaLigada();
+listaLigada.adicionar(123);
+listaLigada.adicionar(50);
+listaLigada.adicionar(100);
+listaLigada.adicionar(-7);
+listaLigada.adicionar(30);
+console.log("\nColeção anterior:");
+listaLigada.imprimir();
+listaLigada.ordenarColecao();
+console.log("\nColeção ordenada:");
+listaLigada.imprimir();

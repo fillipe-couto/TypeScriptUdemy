@@ -82,9 +82,9 @@
   - Arquivos que iniciam com letra **minúscula** normalmente representam arquivos com lógica de funcionamento;
   - Um arquivo de definição de classe normalmente também definem uma interface que contém o mínimo que outras classes devem ter para trabalharem com ela;
   - Outras classes podem implementar outra interface com o auxílio do comando _implements_, que assegura a conformidade daquela classe com a interface da outra classe;
-- Bibliotecas do _Node.js_ podem ser importadas com **import**;
-- Usualmente, componentes Javascript importados devem ter suas definições de tipo para não gerarem warnings no código Typescript. Por isso, pode ser necessário instalar **Arquivos de definição de tipo**;
-- Arquivos de definição de tipos podem ser importados incluindo componentes _@types/\<nome_da_biblioteca\>_ (consultar o repositório no _Node.js_ em _www.npmjs.com_ para maiores detalhes);
+- Bibliotecas **Javascript** do _Node.js_ podem ser importadas com **import**;
+- Usualmente, componentes Javascript importados devem ter suas definições de tipo para não gerarem warnings e erros no código Typescript. Por isso, pode ser necessário instalar **Arquivos de definição de tipo**;
+- Arquivos de definição de tipos podem ser importados incluindo componentes _@types/\<nome_da_biblioteca\>_ (consultar o repositório no _Node.js_ em _www.npmjs.com_ para maiores detalhes) com o comando _npm install @types/\<nome_da_biblioteca\>_;
 - Classes definidas em um arquivo podem ser usadas em outros arquivos com o comando **import**;
 - O arquivo Typescrit que contém classes e outros recursos que podem ser utilizados devem ser disponibilizados com o comando **export**;
 - O modificador **default** no comando _export_ faz com que o recurso disponibilizado seja importado por padrão quando for invocado em um comando _import_, e nesse caso omite-se as chaves. Recursos exportados sem _default_ devem ser incluídos no _import_ entre chaves;
@@ -115,3 +115,12 @@
   - Interfaces são usadas quando diferentes objetos pouco relacionados podem ter algumas características em comum;
   - Classes abstratas são usadas para definir um conjunto de propriedades em comum que objetos parecidos devem ter;
   - Normalmente, a primeira abordagem para definir similaridades entre classes é a interface, refatorando o código depois para classes abstratas se necessário;
+
+## Seção 11 (projeto _stats_)
+
+- Assim como componentes **Javascript** importados, componentes nativos/padrão do _Node.js_ também devem ter suas definições de tipo para não gerarem warnings e erros no código Typescript. Elas devem ser importadas com o comando _npm install @types/node_;
+- Funções úteis do tipo Array:
+  - **map**: itera sobre os elementos de um array, executando a função passada por parâmetro em cada um deles e retornando uma versão modificada do elemento (que inclusive pode ser de tipo diferente do array original). Retorna um novo array com o resultado de cada iteração dos elementos;
+  - **forEach**: itera sobre os elementos de um array, executando a função passada por parâmetro em cada um deles. Não retorna nada;
+- Typescript (e não Javascript) suportam _enums_, e podem ser usados como tipo;
+- _Enums_ em Typescript devem ser usados primariamente como informação adicional, sinalizando a outros desenvolvedores que os valores da enum estão relacionados e são conhecidos em tempo de compilação. Isso porque, no fundo, _enums_ serão convertidos para um array de chave/valor no Javascript, não proporcionando nenhum ganho de desempenho;

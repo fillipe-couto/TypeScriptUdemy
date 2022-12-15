@@ -1,11 +1,12 @@
 import fs from "fs";
+import { LeitorDeDados } from "./LeitorDePartidas";
 
-export class LeitorCsv {
-    dado: string[][] = [];
+export class LeitorCsv implements LeitorDeDados {
+    dados: string[][] = [];
     constructor(public nomeArquivo: string) {}
 
-    lerArquivo(): void {
-        this.dado = fs
+    ler(): void {
+        this.dados = fs
             .readFileSync("football.csv", { encoding: "utf-8" })
             .split("\n")
             .map((partida: string): string[] => {

@@ -123,10 +123,12 @@
   - **map**: itera sobre os elementos de um array, executando uma função passada por parâmetro em cada um deles que retorna uma versão modificada do elemento (que inclusive pode ser de tipo diferente do array original). Retorna um novo array com o resultado de cada iteração dos elementos;
   - **forEach**: itera sobre os elementos de um array, executando uma função sem retorno passada por parâmetro em cada um deles. Não retorna nada;
 - Typescript (e não Javascript) suportam _enums_, e podem ser usados como tipo para definição de variáveis, retorno de funções, etc;
-- _Enums_ em Typescript devem ser usados primariamente como informação adicional, sinalizando a outros desenvolvedores que os valores da enum estão relacionados e são conhecidos em tempo de compilação. Isso porque, no fundo, _enums_ serão convertidos para um array de chave/valor no Javascript, não proporcionando nenhum ganho de desempenho;
+- _Enums_ em Typescript devem ser usados primariamente como informação adicional, sinalizando a outros desenvolvedores que os valores da _enum_ estão relacionados e são conhecidos em tempo de compilação. Isso porque, no fundo, _enums_ serão convertidos para um array de chave/valor no Javascript, não proporcionando nenhum ganho de desempenho;
 - **Type Assertions**: uso da palavra chave _as_ para que uma variável seja considerada como de um tipo específico (por exemplo, uma string ser considerada como um dos valores possíveis de uma _enum_);
 - **Generics**: a fim de promover o reúso de código, o uso de _Generics_ fornece uma segunda camada de desacoplamento, onde uma classe pode ser definida com tipos parametrizados em vez de tipos fixos (assim como argumentos de funções);
 - _Generics_ podem ter qualquer nome, mas por convenção, o nome é "T";
 - Herança X Composição:
   - Herança: relação do tipo "X _é um_ Y" (LeitorDePartidas **é um** LeitorCsv). Implementação com classes abstratas;
   - Composição: relação do tipo "X _tem um_ Y" (LeitorDePartidas **tem um** LeitorCsv). Implementação com interfaces;
+  - De acordo com especialistas em Padrões de Projeto: **Dar preferência a Composição do que Herança**;
+  - Conceito de Composição em Padrões de Projeto: um objeto é composto por outros com atribuições e comportamentos **delegados**;

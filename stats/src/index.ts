@@ -1,20 +1,14 @@
+import { AnalisadorDeVitorias } from "./analisadores/AnalisadorDeVitorias";
 import { LeitorCsv } from "./LeitorCsv";
-import { LeitorDePartidas, ResultadoPartidas } from "./LeitorDePartidas";
+import { LeitorDePartidas } from "./LeitorDePartidas";
+import { Relatorio } from "./Relatorio";
+import { SaidaConsole } from "./saidas/SaidaConsole";
 
 const leitorDePartidas = new LeitorDePartidas(new LeitorCsv("football.csv"));
 leitorDePartidas.carregarDados();
 
-let vitoriasManUnited = 0;
+const relatorioDeVitoriasNoConsole = new Relatorio(new AnalisadorDeVitorias("Man United"), new SaidaConsole());
+relatorioDeVitoriasNoConsole.gerarRelatorio(leitorDePartidas.partidas);
 
-for (let partida of leitorDePartidas.partidas) {
-    if (partida[1] === "Man United" && partida[5] === ResultadoPartidas.AnfitriaoVencedor) {
-        vitoriasManUnited++;
-    } else if (partida[2] === "Man United" && partida[5] === ResultadoPartidas.VisitanteVencedor) {
-        vitoriasManUnited++;
-    }
-}
-
-console.log(`
-Relatório:
-- Man United ganhou ${vitoriasManUnited} partida(s);
-`);
+const relatorioDeVitoriasHtml = Relatorio.relatorioDeVitoriasEmHtml("Man United");
+relatorioDeVitoriasHtml.gerarRelatorio(leitorDePartidas.partidas);

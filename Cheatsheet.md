@@ -132,3 +132,4 @@
   - Composição: relação do tipo "X _tem um_ Y" (LeitorDePartidas **tem um** LeitorCsv). Implementação com interfaces;
   - De acordo com especialistas em Padrões de Projeto: **Dar preferência a Composição do que Herança**;
   - Conceito de Composição em Padrões de Projeto: um objeto é composto por outros com atribuições e comportamentos **delegados**;
+- Classes em Typescript também aceitam métodos estáticos;

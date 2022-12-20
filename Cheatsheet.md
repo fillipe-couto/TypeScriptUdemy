@@ -133,3 +133,7 @@
   - De acordo com especialistas em Padrões de Projeto: **Dar preferência a Composição do que Herança**;
   - Conceito de Composição em Padrões de Projeto: um objeto é composto por outros com atribuições e comportamentos **delegados**;
 - Classes em Typescript também aceitam métodos estáticos;
+
+## Seção 12
+
+- Ao declarar uma classe com Generics, o Typescript pode fazer inferência de tipo;

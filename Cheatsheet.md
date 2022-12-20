@@ -137,3 +137,9 @@
 ## Seção 12
 
 - Ao declarar uma classe com Generics, o Typescript pode fazer inferência de tipo;
+- Funções também podem conter Generics;
+- Generics podem conter _constrains_, com o intuito de garantir que o Generic contenha no mínimo um conjunto específico de propriedades e métodos, definidos por uma interface;
+
+## Seção 13
+
+- Interfaces podem ter propriedades e funções opcionais;

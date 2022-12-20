@@ -35,7 +35,7 @@ const celtinha = {
     ano: 1996,
     quebrado: false,
     quebrar(): void {
-        this.quebrado = false;
+        this.quebrado = true;
     },
 };
 

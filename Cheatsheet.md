@@ -143,3 +143,4 @@
 ## Seção 13
 
 - Interfaces podem ter propriedades e funções opcionais;
+- Ao declarar um objeto JSON que não se sabe o nome dos campos (que podem ser definidos em tempo de execução), é possivel fazer uma declaração do tipo **\<nome_da_variavel\>: { [\<nome_da_chave\>: string]: \<tipo_do_campo\> }**;

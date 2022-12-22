@@ -1,13 +1,12 @@
 "use strict";
 exports.__esModule = true;
 var url = "https://jsonplaceholder.typicode.com/todos/1";
-var obj = {
-    userId: 1,
-    id: 1,
-    title: "delectus aut autem",
-    completed: false
-};
 // axios.get(url).then(resposta => {
 //     console.log(resposta.data);
 // });
-console.log(obj);
+var tarefa = {
+    id: 123,
+    titulo: "Lavar a roupa",
+    concluida: true
+};
+console.log("\n    ID da tarefa: ".concat(tarefa.id, "\n    T\u00EDtulo: ").concat(tarefa.titulo, "\n    Conclu\u00EDdo? ").concat(tarefa.concluida ? "SIM" : "NÃO", "\n"));

@@ -17,3 +17,22 @@ function imprimirArray(array) {
     }
 }
 imprimirArray([1, 2, 3]);
+// Constrains in Generics
+var Carro = /** @class */ (function () {
+    function Carro() {
+    }
+    Carro.prototype.imprimir = function () { };
+    return Carro;
+}());
+var Casa = /** @class */ (function () {
+    function Casa() {
+    }
+    Casa.prototype.imprimir = function () { };
+    return Casa;
+}());
+function imprimirObjetos(array) {
+    for (var i = 0; i < array.length; i++) {
+        array[i].imprimir();
+    }
+}
+imprimirObjetos([new Carro(), new Carro()]);

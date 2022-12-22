@@ -1,16 +1,8 @@
 import { Usuario } from "./model/Usuario";
 
-const usuario = new Usuario({ nome: "Fillipe", idade: 37 });
-usuario.quandoOcorrer("abc", () => {
-    console.log("Evento abc#1");
-});
-usuario.quandoOcorrer("xyz", () => {
-    console.log("Evento xyz#1");
-});
-usuario.quandoOcorrer("abc", () => {
-    console.log("Evento abc#2");
-});
+const usuario = new Usuario({ id: 1 });
+usuario.set({ nome: "Mudando...", idade: 1234 });
+usuario.persistir();
 
-usuario.tratarEvento("xyz");
-usuario.tratarEvento("123");
-usuario.tratarEvento("abc");
+const usuario2 = new Usuario({ nome: "Mais um!" });
+usuario2.persistir();

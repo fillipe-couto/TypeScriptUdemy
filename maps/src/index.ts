@@ -1,3 +1,5 @@
+/// <reference types="@types/google.maps" />
+
 import { Usuario } from "./Usuario";
 import { Empresa } from "./Empresa";
 import { Mapa } from "./Mapa";

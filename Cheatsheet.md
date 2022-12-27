@@ -144,3 +144,9 @@
 
 - Interfaces podem ter propriedades e funções opcionais;
 - Ao declarar um objeto JSON que não se sabe o nome dos campos (que podem ser definidos em tempo de execução), é possivel fazer uma declaração do tipo **\<nome_da_variavel\>: { [\<nome_da_chave\>: string]: \<tipo_do_campo\> }**;
+- **Serializar/Desserializar**: converter um objeto para um formato de dados passível de gravação (como JSON), e vice-versa;
+- Duas regras importantes avançadas de _Generics_:
+  - Uma _string_ pode ser um tipo;
+  - Todas as _keys_ de um objeto são _strings_;
+- Métodos também podem ter Generics, para definir um tipo de retorno ou tipo de argumento a receber;
+- _Generics_ podem ser usados com a constrain **keyof**, que define o conjunto das _keys_ de um objeto (exemplo: "**K extends keyof T**");

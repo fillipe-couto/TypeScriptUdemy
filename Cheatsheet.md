@@ -106,7 +106,9 @@
 - **Type Guards**: especificação de tipos para variáveis com dois ou mais tipos (definidas com "|"):
   - **typeof \<variavel\> === '\<tipo\>'**: quando **tipo** for _number_, _string_, _boolean_ ou _symbol_;
   - **\<variavel\> instanceof '\<tipo\>'**: para demais tipos e objetos;
-- **get**: define um método como uma propriedade;
+- **Accessors** (Acessores):
+  - **get**: define um método sem parâmetros como uma propriedade;
+  - **set**: define um método com um único parâmetro como uma propriedade;
 - Classes podem herdar outras com o comando _extends_;
 - Se a classe que herda outra classe tiver um construtor específico declarado, deverá chamar explicitamente o construtor da classe herdada com o método _super()_;
 - Classes Abstratas x Interfaces
@@ -150,3 +152,4 @@
   - Todas as _keys_ de um objeto são _strings_;
 - Métodos também podem ter Generics, para definir um tipo de retorno ou tipo de argumento a receber;
 - _Generics_ podem ser usados com a constrain **keyof**, que define o conjunto das _keys_ de um objeto (exemplo: "**K extends keyof T**");
+- Para efeitos de consistência entre contextos, dar preferência **sempre** em declarar funções com _arrow functions_;

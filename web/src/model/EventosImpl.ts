@@ -1,6 +1,6 @@
-export type FuncaoDeEvento = () => void;
+import { Eventos, FuncaoDeEvento } from "./Modelo";
 
-export class Evento {
+export class EventosImpl implements Eventos {
     eventos: { [chave: string]: FuncaoDeEvento[] } = {};
 
     quandoOcorrer = (nomeEvento: string, funcao: FuncaoDeEvento): void => {

@@ -1,55 +1,21 @@
-import { AxiosResponse } from "axios";
-import { Atributos } from "./Atributos";
-import { Evento } from "./Evento";
-import { SincRemota } from "./SincRemota";
+import { Api } from "./Api";
+import { AtributosImpl } from "./AtributosImpl";
+import { EventosImpl } from "./EventosImpl";
+import { Atributos, Eventos, Identificavel, Modelo, Sincronizacao } from "./Modelo";
 
-export interface Dado {
+const servidor = "http://localhost:3000/usuarios";
+
+export interface DadosUsuario extends Identificavel {
     id?: number;
     nome?: string;
     idade?: number;
 }
 
-const servidor = "http://localhost:3000/usuarios";
-
-export class Usuario {
-    private readonly eventos: Evento;
-    private readonly sincronizar: SincRemota<Dado>;
-    private readonly atributos: Atributos<Dado>;
-
-    constructor(atributos: Dado) {
-        this.eventos = new Evento();
-        // Disparar algum evento para atualizar o frontend!
-        this.eventos.quandoOcorrer("atualizacao", () => {
-            console.info(this);
-        });
-        this.sincronizar = new SincRemota<Dado>(servidor);
-        this.atributos = new Atributos<Dado>(atributos);
+export class Usuario extends Modelo<DadosUsuario> {
+    private constructor(atributos: Atributos<DadosUsuario>, eventos: Eventos, sinc: Sincronizacao<DadosUsuario>) {
+        super(atributos, eventos, sinc);
     }
-
-    get get() {
-        return this.atributos.get;
-    }
-
-    set set(novoDado: Dado) {
-        this.atributos.set(novoDado);
-        this.eventos.tratarEvento("atualizacao"); // Disparar algum evento para atualizar o frontend!
-    }
-
-    get quandoOcorrer() {
-        return this.eventos.quandoOcorrer;
-    }
-
-    get tratarEvento() {
-        return this.eventos.tratarEvento;
-    }
-
-    obter(): void {
-        const id = this.atributos.get("id");
-        if (typeof id !== "number") {
-            throw new Error("Não é possível usuário obter com ID nulo!");
-        }
-        this.sincronizar.obter(id).then((retorno: AxiosResponse): void => {
-            this.set = retorno.data;
-        });
+    public static criarUsuario(atributos: DadosUsuario): Usuario {
+        return new Usuario(new AtributosImpl(atributos), new EventosImpl(), new Api<DadosUsuario>(servidor));
     }
 }

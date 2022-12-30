@@ -1,11 +1,8 @@
 import axios, { AxiosPromise } from "axios";
+import { Identificavel, Sincronizacao } from "./Modelo";
 
-export interface Sincronizavel {
-    id?: number;
-}
-
-export class SincRemota<T extends Sincronizavel> {
-    constructor(public servidor: string) {}
+export class Api<T extends Identificavel> implements Sincronizacao<T> {
+    constructor(private servidor: string) {}
     obter(id: number): AxiosPromise {
         return axios.get(`${this.servidor}/${id}`);
     }

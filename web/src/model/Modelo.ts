@@ -30,8 +30,7 @@ export abstract class Modelo<T extends Identificavel> {
             console.info(this);
         });
         this.eventos.quandoOcorrer("gravacao", () => {
-            console.warn("Gravado:");
-            console.warn(this);
+            console.warn("Gravado!");
         });
         this.eventos.quandoOcorrer("erro", () => {
             console.error("ERRO!");
@@ -62,6 +61,7 @@ export abstract class Modelo<T extends Identificavel> {
             .persistir(this.atributos.obterTudo())
             .then((retorno: AxiosResponse): void => {
                 this.eventos.tratarEvento("gravacao"); // Disparar algum evento para atualizar o frontend!
+                this.set = retorno.data;
             })
             .catch((retorno: AxiosResponse): void => {
                 this.eventos.tratarEvento("erro"); // Disparar algum evento para atualizar o frontend!

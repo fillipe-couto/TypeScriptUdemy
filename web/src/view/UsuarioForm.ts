@@ -1,71 +1,50 @@
-import { Usuario } from "../model/Usuario";
+import { DadosUsuario, Usuario } from "../model/Usuario";
+import { View } from "./View";
 
-export class UsuarioForm {
-    constructor(private elementoPai: Element | null, private modelo: Usuario) {
-        this.modelo.quandoOcorrer("atualizacao", (): void => {
-            this.renderizar();
-        });
-    }
-
+export class UsuarioForm extends View<Usuario, DadosUsuario> {
     /*
         O mapa define um conjunto de objetos do tipo "<nome_do_evento>:<seletor_html>": <funcao>
     */
-    mapaDeEventos(): { [chave: string]: () => void } {
+    mapaDeEventos = (): { [chave: string]: () => void } => {
         return {
-            "click:button": this.botaoClicado, // Selecao por tag
-            "click:#b2": this.botaoClicado2, // Selecao por id
+            "click:#nome": this.definirNome, // Selecao por id
             "click:.idadeAleatoria": this.definirIdadeAleatoria, // Selecao por classe
+            "click:.salvar": this.salvar, // Selecao por classe
+            "click:button": this.botaoClicado, // Selecao por tag
         };
+    };
+
+    modeloHtml(): string {
+        return `
+        <div>
+            <input placeholder="${this.modelo.get("nome")}"/>
+            <button id="nome">Definir nome</button>
+            <button class="idadeAleatoria">Definir idade aleatoria</button>            
+            <button class="salvar">Salvar</button>
+            <button>Botao qualquer</button>
+
+        </div>
+        `;
     }
 
-    botaoClicado(): void {
-        console.log("Algum botão clicado!");
-    }
-
-    botaoClicado2(): void {
-        console.warn("Botão 2 clicado!");
-    }
+    definirNome = (): void => {
+        if (this.elementoPai) {
+            const entrada = this.elementoPai.querySelector("input");
+            this.modelo.set = { nome: entrada?.value };
+        } else {
+            throw new Error("Elemento pai não definido");
+        }
+    };
 
     definirIdadeAleatoria = (): void => {
         this.modelo.definirIdadeAleatoria();
     };
 
-    /*
-        Anexação dos eventos aos elementos, com base no mapa
-    */
-    mapearEventos(fragmento: DocumentFragment): void {
-        const mapaDeEventos = this.mapaDeEventos();
-        for (let evento in mapaDeEventos) {
-            const [nomeEvento, seletor] = evento.split(":");
-            fragmento.querySelectorAll(seletor).forEach((elemento) => {
-                elemento.addEventListener(nomeEvento, mapaDeEventos[evento]);
-            });
-        }
-    }
+    salvar = (): void => {
+        this.modelo.persistir();
+    };
 
-    modeloHtml(): string {
-        return `
-        <div>
-            <h1>Form de Usuário</h1>
-            <div>Nome do usuário: ${this.modelo.get("nome")}</div>
-            <div>Idade do usuário: ${this.modelo.get("idade")}</div>
-            <input />
-            <button>Botao 1</button>
-            <button id="b2">Botao 2</button>
-            <button class="idadeAleatoria">Definir idade aleatoria</button>
-        </div>
-        `;
-    }
-
-    renderizar(): void {
-        if (this.elementoPai) {
-            this.elementoPai.innerHTML = "";
-            const elementoModelo = document.createElement("template");
-            elementoModelo.innerHTML = this.modeloHtml();
-            this.mapearEventos(elementoModelo.content);
-            this.elementoPai.append(elementoModelo.content);
-        } else {
-            throw new Error("Elemento pai não encontrado");
-        }
+    botaoClicado(): void {
+        console.log("Algum botão clicado!");
     }
 }

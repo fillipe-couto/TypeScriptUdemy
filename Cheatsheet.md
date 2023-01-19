@@ -156,3 +156,8 @@
 - **Operador "?." (null-coalescing)**: Se o objeto for definido, retorna o valor padrão, se não for definido, retorna _undefined_;
 - Classes usando _Generics_ podem ser encadeadas e aninhadas;
 - Uma classe não pode ser herdada se possuir um construtor privado (equivalente a _final_ em Java);
+
+## Seção 14/15
+
+- Prototypes: ao converter classes de Typescript para Javascript, os métodos são armazenados dentro de _prototypes_;
+- Se um protótipo de uma instância é alterado em tempo de execução (com a adição, remoção ou alteração de métodos), TODAS as referências são afetadas (as já criadas e as futuras);

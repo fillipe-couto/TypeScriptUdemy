@@ -157,7 +157,15 @@
 - Classes usando _Generics_ podem ser encadeadas e aninhadas;
 - Uma classe não pode ser herdada se possuir um construtor privado (equivalente a _final_ em Java);
 
-## Seção 14/15
+## Seção 14
 
 - Prototypes: ao converter classes de Typescript para Javascript, os métodos são armazenados dentro de _prototypes_;
 - Se um protótipo de uma instância é alterado em tempo de execução (com a adição, remoção ou alteração de métodos), TODAS as referências são afetadas (as já criadas e as futuras);
+
+## Seção 15
+
+- **Decorators**: funções que modificam diversos aspectos de uma **classe**;
+- Recurso experimental;
+- Só é executado **uma única vez**, quando a classe é _definida_ (e não _instanciada_);
+- Utilizam o recurso de _Properties_ do Javascript para alterar os aspectos da classe;
+- Podem ser parametrizados com o recurso de _Factories_;
